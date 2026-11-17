@@ -1,0 +1,55 @@
+{
+  "name": "corrida-do-saber",
+  "productName": "Corrida do Saber",
+  "version": "1.0.0",
+  "description": "Jogo educacional de Ciências: corrida, leitura, questões e escolha de uso de IA (produto educacional de mestrado).",
+  "author": "Projeto Corrida do Saber",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "br.edu.mestrado.corridadosaber",
+    "productName": "Corrida do Saber",
+    "copyright": "Produto educacional de mestrado",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "defaults.js",
+      "index.html",
+      "style.css",
+      "game.js",
+      "admin.js",
+      "browser-api.js",
+      "questions.js",
+      "build/icon.ico",
+      "package.json"
+    ],
+    "win": {
+      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Corrida do Saber",
+      "language": "1046",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "Corrida-do-Saber-Setup-${version}.exe"
+    }
+  }
+}
